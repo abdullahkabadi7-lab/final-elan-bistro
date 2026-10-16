@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://final-elan-bistro.vercel.app/</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://final-elan-bistro.vercel.app/elan-bistro-dining-room-hero.jpg</image:loc>
+      <image:title>Élan Bistro Candlelit Dining Room in Paris 8th</image:title>
+      <image:caption>Modern French-Mediterranean fine dining atmosphere at Élan Bistro, Paris.</image:caption>
+    </image:image>
+  </url>
+</urlset>
