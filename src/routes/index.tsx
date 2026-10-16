@@ -7,18 +7,59 @@ import {
 } from "lucide-react";
 
 import heroImg from "@/assets/elan-bistro-dining-room-hero.jpg";
+import heroImg640Webp from "@/assets/elan-bistro-dining-room-hero-640.webp";
+import heroImg1024Webp from "@/assets/elan-bistro-dining-room-hero-1024.webp";
+import heroImg1920Webp from "@/assets/elan-bistro-dining-room-hero-1920.webp";
+import heroImg640Jpg from "@/assets/elan-bistro-dining-room-hero-640.jpg";
+import heroImg1024Jpg from "@/assets/elan-bistro-dining-room-hero-1024.jpg";
+
 import aboutImg from "@/assets/elan-bistro-dining-room.jpg";
+import aboutImg640Webp from "@/assets/elan-bistro-dining-room-640.webp";
+import aboutImg1024Webp from "@/assets/elan-bistro-dining-room-1024.webp";
+
 import chefImg from "@/assets/chef-julien-marchetti.jpg";
+import chefImg400Webp from "@/assets/chef-julien-marchetti-400.webp";
+import chefImg800Webp from "@/assets/chef-julien-marchetti-800.webp";
+
 import dish1 from "@/assets/seared-hokkaido-scallops.jpg";
+import dish1_400Webp from "@/assets/seared-hokkaido-scallops-400.webp";
+import dish1_800Webp from "@/assets/seared-hokkaido-scallops-800.webp";
+
 import dish2 from "@/assets/aged-wagyu-tenderloin.jpg";
+import dish2_400Webp from "@/assets/aged-wagyu-tenderloin-400.webp";
+import dish2_800Webp from "@/assets/aged-wagyu-tenderloin-800.webp";
+
 import dish3 from "@/assets/valrhona-fondant.jpg";
+import dish3_400Webp from "@/assets/valrhona-fondant-400.webp";
+import dish3_800Webp from "@/assets/valrhona-fondant-800.webp";
+
 import dish4 from "@/assets/oysters-de-cancale.jpg";
+import dish4_400Webp from "@/assets/oysters-de-cancale-400.webp";
+import dish4_800Webp from "@/assets/oysters-de-cancale-800.webp";
+
 import dish5 from "@/assets/black-truffle-tagliolini.jpg";
+import dish5_400Webp from "@/assets/black-truffle-tagliolini-400.webp";
+import dish5_800Webp from "@/assets/black-truffle-tagliolini-800.webp";
+
 import dish6 from "@/assets/roast-challans-duck.jpg";
+import dish6_400Webp from "@/assets/roast-challans-duck-400.webp";
+import dish6_800Webp from "@/assets/roast-challans-duck-800.webp";
+
 import gal1 from "@/assets/signature-smoked-cocktail.jpg";
+import gal1_400Webp from "@/assets/signature-smoked-cocktail-400.webp";
+import gal1_800Webp from "@/assets/signature-smoked-cocktail-800.webp";
+
 import gal2 from "@/assets/elan-bistro-wine-cellar.jpg";
+import gal2_400Webp from "@/assets/elan-bistro-wine-cellar-400.webp";
+import gal2_800Webp from "@/assets/elan-bistro-wine-cellar-800.webp";
+
 import gal3 from "@/assets/chef-plating-dish.jpg";
+import gal3_400Webp from "@/assets/chef-plating-dish-400.webp";
+import gal3_800Webp from "@/assets/chef-plating-dish-800.webp";
+
 import gal4 from "@/assets/candlelit-table-setting.jpg";
+import gal4_400Webp from "@/assets/candlelit-table-setting-400.webp";
+import gal4_800Webp from "@/assets/candlelit-table-setting-800.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -41,6 +82,14 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: "https://final-elan-bistro.vercel.app/" },
+      {
+        rel: "preload",
+        as: "image",
+        type: "image/webp",
+        imageSrcSet: `${heroImg640Webp} 640w, ${heroImg1024Webp} 1024w, ${heroImg1920Webp} 1920w`,
+        imageSizes: "(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw",
+        fetchPriority: "high",
+      },
     ],
     scripts: [
       {
@@ -285,17 +334,28 @@ function Hero() {
   return (
     <section id="top" ref={ref} className="relative h-dvh min-h-[640px] w-full overflow-hidden">
       <motion.div style={{ y }} className="absolute inset-0">
-        <img
-          src={heroImg}
-          alt="Élan Bistro candlelit dining room in Paris"
-          className="size-full object-cover"
-          width={1920}
-          height={1280}
-          fetchPriority="high"
-          decoding="async"
-          srcSet={`${heroImg} 1x`}
-          sizes="100vw"
-        />
+        <picture>
+          <source
+            type="image/webp"
+            srcSet={`${heroImg640Webp} 640w, ${heroImg1024Webp} 1024w, ${heroImg1920Webp} 1920w`}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
+          />
+          <source
+            type="image/jpeg"
+            srcSet={`${heroImg640Jpg} 640w, ${heroImg1024Jpg} 1024w, ${heroImg} 1920w`}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
+          />
+          <img
+            src={heroImg}
+            alt="Élan Bistro candlelit dining room in Paris"
+            className="size-full object-cover"
+            width={1920}
+            height={1280}
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/40 to-ink/90" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.6)_100%)]" />
       </motion.div>
@@ -433,17 +493,22 @@ function About() {
         <Reveal>
           <div className="relative">
             <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-gold/20 to-secondary/20 blur-2xl" />
-            <img
-              src={aboutImg}
-              alt="Élan Bistro dining room interior in Paris"
-              width={1200}
-              height={1400}
-              loading="lazy"
-              decoding="async"
-              className="relative rounded-3xl shadow-elegant w-full aspect-[4/5] object-cover"
-              srcSet={`${aboutImg} 1x`}
-              sizes="(max-width: 1024px) 100vw, 600px"
-            />
+            <picture>
+              <source
+                type="image/webp"
+                srcSet={`${aboutImg640Webp} 640w, ${aboutImg1024Webp} 1024w`}
+                sizes="(max-width: 1024px) 100vw, 600px"
+              />
+              <img
+                src={aboutImg}
+                alt="Élan Bistro dining room interior in Paris"
+                width={1200}
+                height={1400}
+                loading="lazy"
+                decoding="async"
+                className="relative rounded-3xl shadow-elegant w-full aspect-[4/5] object-cover"
+              />
+            </picture>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -537,12 +602,12 @@ function About() {
 
 /* ---------------- SIGNATURE DISHES ---------------- */
 const SIGNATURE = [
-  { img: dish1, name: "Seared Hokkaido Scallops", desc: "Cauliflower velouté, brown butter, sea herbs.", price: "€38", cat: "Sea", alt: "Seared Hokkaido scallops served at Élan Bistro" },
-  { img: dish2, name: "Aged Wagyu Tenderloin", desc: "Black truffle jus, charred shallot, bone marrow.", price: "€72", cat: "Land", alt: "Aged Wagyu tenderloin at Élan Bistro" },
-  { img: dish3, name: "Valrhona Fondant", desc: "70% dark chocolate, raspberry coulis, 24k leaf.", price: "€18", cat: "Sweet", alt: "Valrhona chocolate fondant dessert" },
-  { img: dish4, name: "Oysters de Cancale", desc: "Half-dozen on ice, mignonette, citron.", price: "€32", cat: "Sea", alt: "Oysters de Cancale on ice at Élan Bistro" },
-  { img: dish5, name: "Black Truffle Tagliolini", desc: "House pasta, périgord truffle, parmigiano 36mo.", price: "€44", cat: "Pasta", alt: "Black truffle tagliolini pasta at Élan Bistro" },
-  { img: dish6, name: "Roast Challans Duck", desc: "Sour cherry gastrique, glazed root vegetables.", price: "€48", cat: "Land", alt: "Roast Challans duck served at Élan Bistro" },
+  { img: dish1, webp400: dish1_400Webp, webp800: dish1_800Webp, name: "Seared Hokkaido Scallops", desc: "Cauliflower velouté, brown butter, sea herbs.", price: "€38", cat: "Sea", alt: "Seared Hokkaido scallops served at Élan Bistro" },
+  { img: dish2, webp400: dish2_400Webp, webp800: dish2_800Webp, name: "Aged Wagyu Tenderloin", desc: "Black truffle jus, charred shallot, bone marrow.", price: "€72", cat: "Land", alt: "Aged Wagyu tenderloin at Élan Bistro" },
+  { img: dish3, webp400: dish3_400Webp, webp800: dish3_800Webp, name: "Valrhona Fondant", desc: "70% dark chocolate, raspberry coulis, 24k leaf.", price: "€18", cat: "Sweet", alt: "Valrhona chocolate fondant dessert" },
+  { img: dish4, webp400: dish4_400Webp, webp800: dish4_800Webp, name: "Oysters de Cancale", desc: "Half-dozen on ice, mignonette, citron.", price: "€32", cat: "Sea", alt: "Oysters de Cancale on ice at Élan Bistro" },
+  { img: dish5, webp400: dish5_400Webp, webp800: dish5_800Webp, name: "Black Truffle Tagliolini", desc: "House pasta, périgord truffle, parmigiano 36mo.", price: "€44", cat: "Pasta", alt: "Black truffle tagliolini pasta at Élan Bistro" },
+  { img: dish6, webp400: dish6_400Webp, webp800: dish6_800Webp, name: "Roast Challans Duck", desc: "Sour cherry gastrique, glazed root vegetables.", price: "€48", cat: "Land", alt: "Roast Challans duck served at Élan Bistro" },
 ];
 
 function Signature() {
@@ -563,19 +628,24 @@ function Signature() {
               className="group relative overflow-hidden rounded-3xl bg-card shadow-elegant"
             >
               <div className="relative overflow-hidden aspect-[4/3]">
-                <img
-                  src={d.img}
-                  alt={d.alt}
-                  loading="lazy"
-                  decoding="async"
-                  width={1024}
-                  height={768}
-                  className="size-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  srcSet={`${d.img} 1x`}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcSet={`${d.webp400} 400w, ${d.webp800} 800w`}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                  <img
+                    src={d.img}
+                    alt={d.alt}
+                    loading="lazy"
+                    decoding="async"
+                    width={1024}
+                    height={768}
+                    className="size-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
-                <span className="absolute top-4 left-4 rounded-full glass-dark px-3 py-1 text-[10px] uppercase tracking-widest text-gold">
+                <span className="absolute top-4 left-4 rounded-full glass-dark px-3 py-1 text-[10px] uppercase tracking-widest text-gold font-medium">
                   {d.cat}
                 </span>
               </div>
@@ -744,17 +814,22 @@ function Chef() {
           <div className="relative">
             <div className="absolute -top-6 -left-6 size-24 rounded-full border border-gold/40 animate-float" />
             <div className="absolute -bottom-8 -right-6 size-32 rounded-full bg-gradient-to-br from-gold/20 to-accent/10 blur-2xl" />
-            <img
-              src={chefImg}
-              alt="Chef Julien Marchetti at Élan Bistro"
-              width={1000}
-              height={1300}
-              loading="lazy"
-              decoding="async"
-              className="relative rounded-3xl w-full aspect-[4/5] object-cover shadow-elegant"
-              srcSet={`${chefImg} 1x`}
-              sizes="(max-width: 768px) 100vw, 416px"
-            />
+            <picture>
+              <source
+                type="image/webp"
+                srcSet={`${chefImg400Webp} 400w, ${chefImg800Webp} 800w`}
+                sizes="(max-width: 768px) 100vw, 416px"
+              />
+              <img
+                src={chefImg}
+                alt="Chef Julien Marchetti at Élan Bistro"
+                width={1000}
+                height={1300}
+                loading="lazy"
+                decoding="async"
+                className="relative rounded-3xl w-full aspect-[4/5] object-cover shadow-elegant"
+              />
+            </picture>
           </div>
         </Reveal>
 
@@ -804,12 +879,12 @@ function Chef() {
 
 /* ---------------- GALLERY ---------------- */
 const GALLERY = [
-  { src: gal1, alt: "Signature smoked cocktail at Élan Bistro", h: "row-span-2", w: 800, hdim: 1200 },
-  { src: gal2, alt: "Wine cellar at Élan Bistro", h: "", w: 800, hdim: 600 },
-  { src: dish5, alt: "Black truffle tagliolini at Élan Bistro", h: "", w: 800, hdim: 600 },
-  { src: gal3, alt: "Chef plating a dish at Élan Bistro", h: "row-span-2", w: 800, hdim: 1200 },
-  { src: gal4, alt: "Candlelit table setting at Élan Bistro", h: "", w: 800, hdim: 600 },
-  { src: dish4, alt: "Oysters de Cancale on ice at Élan Bistro", h: "", w: 800, hdim: 600 },
+  { src: gal1, webp400: gal1_400Webp, webp800: gal1_800Webp, alt: "Signature smoked cocktail at Élan Bistro", h: "row-span-2", w: 800, hdim: 1200 },
+  { src: gal2, webp400: gal2_400Webp, webp800: gal2_800Webp, alt: "Wine cellar at Élan Bistro", h: "", w: 800, hdim: 600 },
+  { src: dish5, webp400: dish5_400Webp, webp800: dish5_800Webp, alt: "Black truffle tagliolini at Élan Bistro", h: "", w: 800, hdim: 600 },
+  { src: gal3, webp400: gal3_400Webp, webp800: gal3_800Webp, alt: "Chef plating a dish at Élan Bistro", h: "row-span-2", w: 800, hdim: 1200 },
+  { src: gal4, webp400: gal4_400Webp, webp800: gal4_800Webp, alt: "Candlelit table setting at Élan Bistro", h: "", w: 800, hdim: 600 },
+  { src: dish4, webp400: dish4_400Webp, webp800: dish4_800Webp, alt: "Oysters de Cancale on ice at Élan Bistro", h: "", w: 800, hdim: 600 },
 ];
 
 function Gallery() {
@@ -832,17 +907,22 @@ function Gallery() {
                 className="group relative size-full overflow-hidden rounded-2xl shadow-elegant focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                 aria-label={`Open image: ${g.alt}`}
               >
-                <img
-                  src={g.src}
-                  alt={g.alt}
-                  loading="lazy"
-                  decoding="async"
-                  width={g.w}
-                  height={g.hdim}
-                  className="size-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  srcSet={`${g.src} 1x`}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                />
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcSet={`${g.webp400} 400w, ${g.webp800} 800w`}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                  <img
+                    src={g.src}
+                    alt={g.alt}
+                    loading="lazy"
+                    decoding="async"
+                    width={g.w}
+                    height={g.hdim}
+                    className="size-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/30 transition-colors" />
                 <div className="absolute inset-x-0 bottom-0 p-3 text-left translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all">
                   <span className="text-xs text-cream/90 font-medium">{g.alt}</span>
@@ -937,6 +1017,9 @@ function Testimonials() {
             <AnimatePresence mode="wait">
               <motion.figure
                 key={idx}
+                id="review-panel"
+                role="tabpanel"
+                aria-label={`Testimonial ${idx + 1} of ${REVIEWS.length} by ${REVIEWS[idx].name}`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
@@ -962,15 +1045,16 @@ function Testimonials() {
             </AnimatePresence>
           </div>
 
-          <div className="mt-8 flex items-center justify-center gap-2" role="tablist" aria-label="Reviews">
+          <div className="mt-8 flex items-center justify-center gap-2" role="tablist" aria-label="Review pagination">
             {REVIEWS.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setIdx(i)}
-                aria-label={`Show review ${i + 1}`}
+                aria-label={`View review ${i + 1} of ${REVIEWS.length}: ${REVIEWS[i].name}`}
                 aria-selected={i === idx}
+                aria-controls="review-panel"
                 role="tab"
-                className={`h-1.5 rounded-full transition-all ${i === idx ? "w-8 bg-gold" : "w-2 bg-foreground/20"}`}
+                className={`h-2 rounded-full transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${i === idx ? "w-8 bg-gold" : "w-2.5 bg-foreground/30"}`}
               />
             ))}
           </div>
@@ -1057,68 +1141,85 @@ function Reservation() {
                 noValidate
                 className="grid sm:grid-cols-2 gap-5"
               >
-                <Field label="Full name" error={errors.name}>
+                <Field label="Full name" id="res-name" error={errors.name}>
                   <input
+                    id="res-name"
+                    name="name"
                     type="text"
+                    autoComplete="name"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     maxLength={80}
-                    className="w-full bg-transparent border-b border-cream/20 focus:border-gold outline-none py-2 text-cream placeholder:text-cream/40"
+                    aria-describedby={errors.name ? "res-name-error" : undefined}
+                    className="w-full bg-transparent border-b border-cream/25 focus:border-gold outline-none py-2 text-cream placeholder:text-cream/65"
                     placeholder="Jane Doe"
                   />
                 </Field>
-                <Field label="Email" error={errors.email}>
+                <Field label="Email" id="res-email" error={errors.email}>
                   <input
+                    id="res-email"
+                    name="email"
                     type="email"
+                    autoComplete="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full bg-transparent border-b border-cream/20 focus:border-gold outline-none py-2 text-cream placeholder:text-cream/40"
+                    aria-describedby={errors.email ? "res-email-error" : undefined}
+                    className="w-full bg-transparent border-b border-cream/25 focus:border-gold outline-none py-2 text-cream placeholder:text-cream/65"
                     placeholder="jane@example.com"
                   />
                 </Field>
-                <Field label="Guests" error={errors.guests}>
+                <Field label="Guests" id="res-guests" error={errors.guests}>
                   <select
+                    id="res-guests"
+                    name="guests"
                     value={form.guests}
                     onChange={(e) => setForm({ ...form, guests: e.target.value })}
-                    className="w-full bg-transparent border-b border-cream/20 focus:border-gold outline-none py-2 text-cream"
+                    className="w-full bg-transparent border-b border-cream/25 focus:border-gold outline-none py-2 text-cream"
                   >
                     {[1,2,3,4,5,6,7,8,9,10,11,12].map((n) => (
                       <option key={n} value={n} className="bg-ink">{n} {n === 1 ? "guest" : "guests"}</option>
                     ))}
                   </select>
                 </Field>
-                <Field label="Time" error={errors.time}>
+                <Field label="Time" id="res-time" error={errors.time}>
                   <select
+                    id="res-time"
+                    name="time"
                     value={form.time}
                     onChange={(e) => setForm({ ...form, time: e.target.value })}
-                    className="w-full bg-transparent border-b border-cream/20 focus:border-gold outline-none py-2 text-cream"
+                    className="w-full bg-transparent border-b border-cream/25 focus:border-gold outline-none py-2 text-cream"
                   >
                     {["17:30","18:00","18:30","19:00","19:30","20:00","20:30","21:00","21:30","22:00"].map((t) => (
                       <option key={t} value={t} className="bg-ink">{t}</option>
                     ))}
                   </select>
                 </Field>
-                <Field label="Date" error={errors.date} className="sm:col-span-2">
+                <Field label="Date" id="res-date" error={errors.date} className="sm:col-span-2">
                   <input
+                    id="res-date"
+                    name="date"
                     type="date"
                     value={form.date}
                     min={new Date().toISOString().split("T")[0]}
                     onChange={(e) => setForm({ ...form, date: e.target.value })}
-                    className="w-full bg-transparent border-b border-cream/20 focus:border-gold outline-none py-2 text-cream [color-scheme:dark]"
+                    aria-describedby={errors.date ? "res-date-error" : undefined}
+                    className="w-full bg-transparent border-b border-cream/25 focus:border-gold outline-none py-2 text-cream [color-scheme:dark]"
                   />
                 </Field>
-                <Field label="Special request (optional)" className="sm:col-span-2">
+                <Field label="Special request (optional)" id="res-note" className="sm:col-span-2">
                   <textarea
+                    id="res-note"
+                    name="note"
                     value={form.note}
                     onChange={(e) => setForm({ ...form, note: e.target.value })}
                     maxLength={400}
                     rows={3}
-                    className="w-full bg-transparent border-b border-cream/20 focus:border-gold outline-none py-2 text-cream placeholder:text-cream/40 resize-none"
+                    className="w-full bg-transparent border-b border-cream/25 focus:border-gold outline-none py-2 text-cream placeholder:text-cream/65 resize-none"
                     placeholder="Anniversary, allergies, seating preference…"
                   />
                 </Field>
                 <div className="sm:col-span-2 flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
-                  <p className="text-xs text-cream/50">Notice: Demonstration form only. Submissions validate in the browser and do not create real restaurant reservations.</p>
+                  <p className="text-xs text-cream/70">Notice: Demonstration form only. Submissions validate in the browser and do not create real restaurant reservations.</p>
                   <button
                     type="submit"
                     className="inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-gold to-secondary px-7 py-3 text-sm font-medium text-cream shadow-elegant hover:shadow-glow transition-all hover:-translate-y-0.5"
@@ -1136,13 +1237,13 @@ function Reservation() {
   );
 }
 
-function Field({ label, error, children, className = "" }: { label: string; error?: string; children: React.ReactNode; className?: string }) {
+function Field({ label, id, error, children, className = "" }: { label: string; id: string; error?: string; children: React.ReactNode; className?: string }) {
   return (
-    <label className={`block ${className}`}>
-      <span className="block text-xs uppercase tracking-[0.2em] text-cream/60 mb-1">{label}</span>
+    <div className={`block ${className}`}>
+      <label htmlFor={id} className="block text-xs uppercase tracking-[0.2em] text-cream/80 mb-1 font-medium">{label}</label>
       {children}
-      {error && <span className="block mt-1 text-xs text-accent">{error}</span>}
-    </label>
+      {error && <span id={`${id}-error`} role="alert" className="block mt-1 text-xs text-accent">{error}</span>}
+    </div>
   );
 }
 
@@ -1382,50 +1483,67 @@ function Footer() {
             <span className="inline-block size-9 rounded-full border border-gold/60 grid place-items-center text-gold font-display text-lg">É</span>
             <span className="font-display text-xl">Élan <span className="text-gold">Bistro</span></span>
           </div>
-          <p className="mt-4 text-sm text-cream/70 max-w-sm">
+          <p className="mt-4 text-sm text-cream/80 max-w-sm">
             A modern bistro with classical soul. Seasonal tasting menus by Chef Julien Marchetti.
           </p>
           <div className="mt-6 flex items-center gap-3">
-            {[Instagram, Facebook, Twitter].map((I, i) => (
-              <a key={i} href="#" aria-label="Social link" className="grid size-10 place-items-center rounded-full border border-cream/15 hover:border-gold hover:text-gold transition-colors">
-                <I className="size-4" />
+            {[
+              { Icon: Instagram, label: "Élan Bistro Instagram demonstration page" },
+              { Icon: Facebook, label: "Élan Bistro Facebook demonstration page" },
+              { Icon: Twitter, label: "Élan Bistro Twitter demonstration page" },
+            ].map(({ Icon, label }, i) => (
+              <a
+                key={i}
+                href="#"
+                aria-label={label}
+                className="grid size-10 place-items-center rounded-full border border-cream/20 hover:border-gold hover:text-gold transition-colors text-cream"
+              >
+                <Icon className="size-4" />
               </a>
             ))}
           </div>
         </div>
 
         <div>
-          <div className="text-xs uppercase tracking-[0.3em] text-gold">Explore</div>
+          <div className="text-xs uppercase tracking-[0.3em] text-gold font-medium">Explore</div>
           <ul className="mt-4 space-y-2.5 text-sm">
             {NAV.map((n) => (
-              <li key={n.href}><a href={n.href} className="text-cream/70 hover:text-cream transition">{n.label}</a></li>
+              <li key={n.href}><a href={n.href} className="text-cream/80 hover:text-cream transition">{n.label}</a></li>
             ))}
           </ul>
         </div>
 
         <div>
-          <div className="text-xs uppercase tracking-[0.3em] text-gold">Newsletter</div>
-          <p className="mt-4 text-sm text-cream/70">Seasonal menus and private dinners, twice a year.</p>
+          <div className="text-xs uppercase tracking-[0.3em] text-gold font-medium">Newsletter</div>
+          <p className="mt-4 text-sm text-cream/80">Seasonal menus and private dinners, twice a year.</p>
           <form
             onSubmit={(e) => e.preventDefault()}
-            className="mt-4 flex items-center gap-2 rounded-full border border-cream/15 p-1.5 focus-within:border-gold transition-colors"
+            className="mt-4 flex items-center gap-2 rounded-full border border-cream/25 p-1.5 focus-within:border-gold transition-colors"
           >
+            <label htmlFor="newsletter-email" className="sr-only">Email address for newsletter</label>
             <input
+              id="newsletter-email"
+              name="email"
               type="email"
+              autoComplete="email"
               required
               placeholder="you@example.com"
-              className="flex-1 bg-transparent px-3 py-2 text-sm outline-none placeholder:text-cream/40"
-              aria-label="Email for newsletter"
+              className="flex-1 bg-transparent px-3 py-2 text-sm outline-none placeholder:text-cream/65 text-cream"
+              aria-label="Email address for newsletter"
             />
-            <button className="rounded-full bg-gold/90 hover:bg-gold p-2 text-ink" aria-label="Subscribe">
+            <button
+              type="submit"
+              className="rounded-full bg-gold/90 hover:bg-gold p-2 text-ink"
+              aria-label="Subscribe to newsletter"
+            >
               <Send className="size-4" />
             </button>
           </form>
         </div>
       </div>
 
-      <div className="border-t border-cream/10">
-        <div className="mx-auto max-w-7xl px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-cream/50">
+      <div className="border-t border-cream/15">
+        <div className="mx-auto max-w-7xl px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-cream/70">
           <p>© {new Date().getFullYear()} Élan Bistro. All rights reserved.</p>
           <p>Crafted with care · Paris</p>
         </div>
