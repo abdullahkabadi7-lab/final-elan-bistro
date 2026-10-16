@@ -64,6 +64,7 @@ import gal4_800Webp from "@/assets/candlelit-table-setting-800.webp";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
+      { name: "google-site-verification", content: "google5858753cd54c0199" },
       { title: "Élan Bistro | Modern French-Mediterranean Restaurant Showcase" },
       { name: "description", content: "Explore the Élan Bistro concept showcase: a fictional modern French-Mediterranean tasting-menu experience in Paris." },
       { property: "og:title", content: "Élan Bistro | Modern French-Mediterranean Restaurant Showcase" },
