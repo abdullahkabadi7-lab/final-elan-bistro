@@ -23,40 +23,24 @@ import gal4 from "@/assets/candlelit-table-setting.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Élan Bistro | French-Mediterranean Restaurant in Paris 8ème (Champs-Élysées)" },
-      { name: "description", content: "Discover Élan Bistro in Paris's 8th arrondissement. Seasonal French-Mediterranean tasting menus by Chef Julien Marchetti. Reserve your candlelit table." },
-      { name: "keywords", content: "Élan Bistro, restaurant Paris 8, French Mediterranean restaurant Paris, Champs-Élysées dining, tasting menu Paris, Julien Marchetti, fine dining Paris 75008" },
-      { name: "geo.region", content: "FR-75" },
-      { name: "geo.placename", content: "Paris" },
-      { name: "geo.position", content: "48.8715;2.3082" },
-      { name: "ICBM", content: "48.8715, 2.3082" },
-      { property: "og:title", content: "Élan Bistro | French-Mediterranean Restaurant in Paris 8ème" },
-      { property: "og:description", content: "Discover Élan Bistro in Paris's 8th arrondissement. Seasonal French-Mediterranean tasting menus by Chef Julien Marchetti. Reserve your candlelit table." },
-      { property: "og:type", content: "restaurant" },
+      { title: "Élan Bistro | Modern French-Mediterranean Restaurant Showcase" },
+      { name: "description", content: "Explore the Élan Bistro concept showcase: a fictional modern French-Mediterranean tasting-menu experience in Paris." },
+      { property: "og:title", content: "Élan Bistro | Modern French-Mediterranean Restaurant Showcase" },
+      { property: "og:description", content: "Explore the Élan Bistro concept showcase: a fictional modern French-Mediterranean tasting-menu experience in Paris." },
+      { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Élan Bistro" },
       { property: "og:url", content: "https://final-elan-bistro.vercel.app/" },
       { property: "og:image", content: "https://final-elan-bistro.vercel.app/elan-bistro-dining-room-hero.jpg" },
       { property: "og:image:width", content: "1920" },
       { property: "og:image:height", content: "1280" },
-      { property: "og:image:alt", content: "Élan Bistro candlelit dining room in Paris 8th" },
-      { property: "og:locale", content: "en_US" },
-      { property: "og:locale:alternate", content: "fr_FR" },
-      { property: "og:site_name", content: "Élan Bistro" },
-      { property: "business:contact_data:street_address", content: "21 Rue des Étoiles" },
-      { property: "business:contact_data:locality", content: "Paris" },
-      { property: "business:contact_data:postal_code", content: "75008" },
-      { property: "business:contact_data:country_name", content: "France" },
-      { property: "business:contact_data:phone_number", content: "+33 1 42 00 00 00" },
-      { property: "business:contact_data:email", content: "bonjour@elanbistro.fr" },
+      { property: "og:image:alt", content: "Élan Bistro candlelit dining room showcase" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Élan Bistro | French-Mediterranean Restaurant in Paris 8ème" },
-      { name: "twitter:description", content: "Discover Élan Bistro in Paris's 8th arrondissement. Seasonal French-Mediterranean tasting menus by Chef Julien Marchetti." },
+      { name: "twitter:title", content: "Élan Bistro | Modern French-Mediterranean Restaurant Showcase" },
+      { name: "twitter:description", content: "Explore the Élan Bistro concept showcase: a fictional modern French-Mediterranean tasting-menu experience in Paris." },
       { name: "twitter:image", content: "https://final-elan-bistro.vercel.app/elan-bistro-dining-room-hero.jpg" },
     ],
     links: [
       { rel: "canonical", href: "https://final-elan-bistro.vercel.app/" },
-      { rel: "alternate", hrefLang: "x-default", href: "https://final-elan-bistro.vercel.app/" },
-      { rel: "alternate", hrefLang: "en", href: "https://final-elan-bistro.vercel.app/" },
-      { rel: "alternate", hrefLang: "fr", href: "https://final-elan-bistro.vercel.app/" },
     ],
     scripts: [
       {
@@ -68,37 +52,12 @@ export const Route = createFileRoute("/")({
               "@type": "Restaurant",
               "@id": "https://final-elan-bistro.vercel.app/#restaurant",
               name: "Élan Bistro",
-              alternateName: "Elan Bistro Paris",
               description:
-                "Modern French-Mediterranean fine dining restaurant in Paris's 8th arrondissement by Chef Julien Marchetti. Seasonal 7-course tasting menu, curated wine pairings, and candlelit ambiance.",
+                "A fictional modern French-Mediterranean bistro demonstration project featuring seasonal tasting menus in Paris.",
               url: "https://final-elan-bistro.vercel.app/",
-              telephone: "+33 1 42 00 00 00",
-              email: "bonjour@elanbistro.fr",
-              priceRange: "€€€€",
-              currenciesAccepted: "EUR",
-              paymentAccepted: "Cash, Credit Card, Visa, Mastercard, American Express",
-              servesCuisine: [
-                "French",
-                "Mediterranean",
-                "Modern French",
-                "Seasonal Tasting Menu",
-              ],
-              image: [
-                "https://final-elan-bistro.vercel.app/elan-bistro-dining-room-hero.jpg",
-              ],
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "21 Rue des Étoiles",
-                addressLocality: "Paris",
-                postalCode: "75008",
-                addressRegion: "Île-de-France",
-                addressCountry: "FR",
-              },
-              geo: {
-                "@type": "GeoCoordinates",
-                latitude: 48.8715,
-                longitude: 2.3082,
-              },
+              servesCuisine: ["French", "Mediterranean"],
+              hasMenu: "https://final-elan-bistro.vercel.app/#menu",
+              acceptsReservations: "https://final-elan-bistro.vercel.app/#reserve",
               openingHoursSpecification: [
                 {
                   "@type": "OpeningHoursSpecification",
@@ -114,118 +73,6 @@ export const Route = createFileRoute("/")({
                   closes: "23:00",
                 },
               ],
-              acceptsReservations: "https://final-elan-bistro.vercel.app/#reserve",
-              potentialAction: {
-                "@type": "ReserveAction",
-                target: {
-                  "@type": "EntryPoint",
-                  urlTemplate: "https://final-elan-bistro.vercel.app/#reserve",
-                  inLanguage: "en-US",
-                  actionPlatform: [
-                    "http://schema.org/DesktopWebPlatform",
-                    "http://schema.org/MobileWebPlatform",
-                  ],
-                },
-                result: {
-                  "@type": "FoodEstablishmentReservation",
-                  name: "Table Reservation",
-                },
-              },
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: "4.9",
-                reviewCount: "128",
-                bestRating: "5",
-                worstRating: "1",
-              },
-              review: [
-                {
-                  "@type": "Review",
-                  author: { "@type": "Person", name: "Camille R." },
-                  publisher: { "@type": "Organization", name: "Le Figaro" },
-                  datePublished: "2025-09-14",
-                  reviewRating: { "@type": "Rating", ratingValue: "5" },
-                  reviewBody:
-                    "Quietly extraordinary. Élan Bistro doesn't perform — it cooks. Every plate feels considered down to the last grain of salt.",
-                },
-                {
-                  "@type": "Review",
-                  author: { "@type": "Person", name: "Aïcha B." },
-                  publisher: { "@type": "Organization", name: "Time Out Paris" },
-                  datePublished: "2025-11-02",
-                  reviewRating: { "@type": "Rating", ratingValue: "5" },
-                  reviewBody:
-                    "A masterclass in restraint. You leave feeling looked after, not impressed at — and that is the rarest thing in Paris.",
-                },
-              ],
-              founder: {
-                "@type": "Person",
-                "@id": "https://final-elan-bistro.vercel.app/#chef-julien",
-                name: "Julien Marchetti",
-                jobTitle: "Head Chef & Co-Owner",
-                knowsAbout: ["Modern French Cuisine", "Mediterranean Gastronomy", "Seasonal Produce"],
-                award: "1 Michelin Star (Since 2015)",
-              },
-              hasMenu: {
-                "@type": "Menu",
-                name: "Seasonal Tasting & À la Carte Menu",
-                url: "https://final-elan-bistro.vercel.app/#menu",
-                hasMenuSection: [
-                  {
-                    "@type": "MenuSection",
-                    name: "Seasonal Tasting Experience",
-                    hasMenuItem: [
-                      {
-                        "@type": "MenuItem",
-                        name: "7-Course Seasonal Tasting Menu",
-                        description:
-                          "Rooted in French technique and Mediterranean harvest, curated weekly by Chef Julien Marchetti.",
-                        offers: {
-                          "@type": "Offer",
-                          price: "145.00",
-                          priceCurrency: "EUR",
-                        },
-                      },
-                    ],
-                  },
-                  {
-                    "@type": "MenuSection",
-                    name: "Signature Creations",
-                    hasMenuItem: [
-                      {
-                        "@type": "MenuItem",
-                        name: "Seared Hokkaido Scallops",
-                        description: "Cauliflower velouté, brown butter, sea herbs.",
-                        offers: {
-                          "@type": "Offer",
-                          price: "38.00",
-                          priceCurrency: "EUR",
-                        },
-                      },
-                      {
-                        "@type": "MenuItem",
-                        name: "Aged Wagyu Tenderloin",
-                        description: "Black truffle jus, charred shallot, bone marrow.",
-                        offers: {
-                          "@type": "Offer",
-                          price: "72.00",
-                          priceCurrency: "EUR",
-                        },
-                      },
-                      {
-                        "@type": "MenuItem",
-                        name: "Valrhona Fondant",
-                        description: "70% dark chocolate, raspberry coulis, 24k leaf.",
-                        offers: {
-                          "@type": "Offer",
-                          price: "18.00",
-                          priceCurrency: "EUR",
-                        },
-                      },
-                    ],
-                  },
-                ],
-              },
             },
             {
               "@type": "WebSite",
@@ -234,77 +81,63 @@ export const Route = createFileRoute("/")({
               url: "https://final-elan-bistro.vercel.app/",
             },
             {
-              "@type": "WebPage",
-              "@id": "https://final-elan-bistro.vercel.app/#webpage",
-              url: "https://final-elan-bistro.vercel.app/",
-              name: "Élan Bistro | French-Mediterranean Restaurant in Paris 8ème",
-              speakable: {
-                "@type": "SpeakableSpecification",
-                cssSelector: [
-                  "#about-summary",
-                  "#glance-facts",
-                  "#contact-details",
-                ],
-              },
-            },
-            {
               "@type": "FAQPage",
               "@id": "https://final-elan-bistro.vercel.app/#faq",
               mainEntity: [
                 {
                   "@type": "Question",
-                  name: "What type of cuisine does Élan Bistro serve?",
+                  name: "Is Élan Bistro a real operating restaurant?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Élan Bistro is a modern French-Mediterranean fine dining restaurant in Paris's 8th arrondissement. Led by Michelin-starred Chef Julien Marchetti, the kitchen combines classical French technique with vibrant Mediterranean terroir and seasonal produce.",
+                    text: "No. Élan Bistro is a fictional demonstration project created to showcase modern frontend web design, typography, and interactive UI for a luxury culinary concept.",
                   },
                 },
                 {
                   "@type": "Question",
-                  name: "Where is Élan Bistro located and which Métro station is closest?",
+                  name: "What type of cuisine is represented on the concept menu?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Élan Bistro is located at 21 Rue des Étoiles, 75008 Paris, steps from the Champs-Élysées. The closest Métro stations are Franklin D. Roosevelt (Lines 1 & 9) and George V (Line 1). Valet and nearby parking are available at Parking Indigo Champs-Élysées.",
+                    text: "The showcase presents a seasonal French-Mediterranean concept featuring classical French culinary technique paired with Mediterranean ingredients.",
                   },
                 },
                 {
                   "@type": "Question",
-                  name: "Does Élan Bistro offer a seasonal tasting menu and what is the price?",
+                  name: "Where is the restaurant concept set?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Yes. Élan Bistro presents a 7-course seasonal tasting menu priced at €145 per guest, with an optional curated wine pairing by sommelier Léa Dumas for €235. An à la carte menu is also available.",
+                    text: "The fictional concept is set in Paris's 8th arrondissement near the Champs-Élysées.",
                   },
                 },
                 {
                   "@type": "Question",
-                  name: "What are Élan Bistro's opening hours?",
+                  name: "What tasting menu is featured on the showcase?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Élan Bistro is open for dinner Tuesday through Sunday from 17:30 to 23:00. The restaurant is closed on Mondays.",
+                    text: "The concept features a 7-course seasonal tasting menu priced at €145, with an optional wine pairing at €235.",
                   },
                 },
                 {
                   "@type": "Question",
-                  name: "What is the dress code at Élan Bistro?",
+                  name: "What are the concept opening hours?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "The dress code is smart casual. Jackets are encouraged for dinner, while sportswear, athletic shorts, and beachwear are not permitted.",
+                    text: "The dining concept is imagined as open Tuesday through Sunday from 17:30 to 23:00, closed on Mondays.",
                   },
                 },
                 {
                   "@type": "Question",
-                  name: "Can Élan Bistro accommodate vegetarian, vegan, or gluten-free diets?",
+                  name: "Does the reservation form place a real booking?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Yes. We offer dedicated vegetarian tasting menu options and accommodate dietary allergies, including celiac/gluten-free requests. Please inform us upon reservation.",
+                    text: "No. The reservation form is a frontend demonstration component with client-side validation; it does not process real bookings or submit personal data to a restaurant.",
                   },
                 },
                 {
                   "@type": "Question",
-                  name: "How can I make a reservation and what is the policy?",
+                  name: "Are the reviews, awards, and chef credentials real?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Reservations can be made online via the reservation form on our website. Tables are held for 15 minutes past reservation time. Cancellations require at least 24 hours advance notice.",
+                    text: "No. All reviews, quotes, chef biography details, and accolades shown on this website are entirely fictional demonstration content.",
                   },
                 },
               ],
@@ -325,6 +158,7 @@ const NAV = [
   { label: "Gallery", href: "#gallery" },
   { label: "Reviews", href: "#reviews" },
   { label: "Contact", href: "#contact" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 function Page() {
@@ -342,6 +176,7 @@ function Page() {
         <Reservation />
         <Contact />
         <FAQ />
+        <DisclaimerNotice />
       </main>
       <Footer />
     </div>
@@ -473,7 +308,7 @@ function Hero() {
           className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs uppercase tracking-[0.25em] text-gold"
         >
           <span className="size-1.5 rounded-full bg-gold animate-pulse" />
-          Est. 2008 · Paris
+          Culinary Concept · Paris 8ème
         </motion.div>
 
         <motion.h1
@@ -482,8 +317,7 @@ function Hero() {
           transition={{ delay: 0.5, duration: 0.9 }}
           className="mt-6 font-display font-bold text-cream text-balance leading-[0.95] text-[clamp(2.75rem,8vw,6.5rem)]"
         >
-          <span className="sr-only">Élan Bistro Paris — </span>A taste of{" "}
-          <span className="italic text-gold-shimmer">éla<span className="not-italic">n</span></span>,
+          A taste of <span className="italic text-gold-shimmer">éla<span className="not-italic">n</span></span>,
           <br className="hidden sm:block" /> served by candlelight.
         </motion.h1>
 
@@ -577,21 +411,21 @@ function SectionHeading({ kicker, title, subtitle, light = false }: { kicker: st
 /* ---------------- ABOUT ---------------- */
 function About() {
   const GLANCE_FACTS = [
-    { label: "Restaurant", value: "Élan Bistro" },
-    { label: "Cuisine", value: "French-Mediterranean" },
-    { label: "Experience", value: "7-Course Seasonal Tasting Menu" },
-    { label: "Location", value: "Paris, 8th Arrondissement" },
-    { label: "Metro", value: "Franklin D. Roosevelt / George V" },
+    { label: "Concept name", value: "Élan Bistro" },
+    { label: "Project type", value: "Fictional demonstration" },
+    { label: "Cuisine style", value: "French-Mediterranean" },
+    { label: "Menu format", value: "7-Course Seasonal Tasting" },
+    { label: "Location setting", value: "Paris, 8th Arrondissement" },
+    { label: "Hours concept", value: "Tuesday–Sunday, 17:30–23:00" },
     { label: "Dress code", value: "Smart Casual" },
-    { label: "Opening hours", value: "Tuesday–Sunday, 17:30–23:00" },
-    { label: "Address", value: "21 Rue des Étoiles, 75008 Paris" },
+    { label: "Bookings", value: "Frontend UI demo" },
   ];
 
   const stats = [
-    { n: "16", l: "Years of craft" },
-    { n: "32", l: "Seasonal dishes" },
-    { n: "1★", l: "Michelin guide" },
-    { n: "120k", l: "Guests welcomed" },
+    { n: "7", l: "Tasting courses" },
+    { n: "32", l: "Curated recipes" },
+    { n: "600", l: "Cellar labels" },
+    { n: "100%", l: "Seasonal focus" },
   ];
   return (
     <section id="about" className="relative py-24 sm:py-32">
@@ -622,7 +456,7 @@ function About() {
               </div>
               <p className="mt-2 text-sm text-foreground/90">
                 <span className="font-medium">"Quietly extraordinary"</span><br />
-                <span className="text-muted-foreground">— Le Figaro</span>
+                <span className="text-muted-foreground">— Concept Review</span>
               </p>
             </motion.div>
           </div>
@@ -639,15 +473,12 @@ function About() {
           </Reveal>
           <Reveal delay={0.1}>
             <p id="about-summary" className="mt-6 text-muted-foreground text-base leading-relaxed">
-              Founded in a quiet corner of the 8th arrondissement, Élan Bistro began as a six-table
-              counter where Chef Julien Marchetti cooked whatever the market gave him that morning.
-              Sixteen years later, the spirit hasn't changed — only the room around it.
+              Conceived as an intimate culinary demonstration in Paris's 8th arrondissement, Élan Bistro explores the balance of classical French technique and Mediterranean warmth. Every plate is crafted to evoke quiet candlelit evenings, seasonal ingredients, and meticulous artisan craft.
             </p>
           </Reveal>
           <Reveal delay={0.15}>
             <p className="mt-4 text-muted-foreground text-base leading-relaxed">
-              We source from small producers within 200km of Paris, age our own vinegars, and pour
-              from a 600-label cellar curated by sommelier Léa Dumas.
+              The showcase highlights seasonal sourcing, house-crafted culinary elements, and a 600-label cellar concept curated to accompany a seven-course tasting journey.
             </p>
           </Reveal>
 
@@ -665,7 +496,7 @@ function About() {
           <Reveal delay={0.25}>
             <div className="mt-8 pt-6 border-t border-border/50">
               <p className="text-xs text-muted-foreground/80 leading-relaxed italic">
-                Reservations open 30 days in advance on the 1st of every month. For private dining salons, chef table experiences, and dietary accommodations, our concierge is at your service.
+                Notice: Élan Bistro is a fictional design and frontend development demonstration. All details, menus, and reviews shown are for illustrative showcase purposes only.
               </p>
             </div>
           </Reveal>
@@ -929,7 +760,7 @@ function Chef() {
 
         <div className="lg:col-span-7">
           <Reveal>
-            <p className="text-xs uppercase tracking-[0.3em] text-secondary">Meet the chef</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-secondary">Culinary vision</p>
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="mt-4 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] text-balance">
@@ -938,9 +769,7 @@ function Chef() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-6 text-muted-foreground text-base leading-relaxed">
-              Trained under Alain Passard at L'Arpège before earning his stripes at Noma and
-              Mirazur, Julien returned to Paris in 2008 with a quiet ambition: to cook the food
-              he wanted to eat with his family.
+              The culinary vision of Chef Julien Marchetti reflects a deep reverence for classical French foundations and Mediterranean warmth—sourcing vibrant seasonal produce and crafting thoughtful harmonies of flavor.
             </p>
           </Reveal>
           <Reveal delay={0.15}>
@@ -948,16 +777,16 @@ function Chef() {
               <p className="font-display italic text-xl text-foreground/90 text-balance">
                 "A great dish doesn't ask for attention. It rewards it."
               </p>
-              <footer className="mt-2 text-sm text-muted-foreground">— Julien Marchetti</footer>
+              <footer className="mt-2 text-sm text-muted-foreground">— Julien Marchetti (Concept Chef)</footer>
             </blockquote>
           </Reveal>
 
           <Reveal delay={0.2}>
             <div className="mt-10 grid sm:grid-cols-3 gap-4">
               {[
-                { icon: Award, t: "Michelin ★", s: "Since 2015" },
-                { icon: Utensils, t: "20+ Years", s: "Of fine dining" },
-                { icon: Wine, t: "600 Labels", s: "Curated cellar" },
+                { icon: Award, t: "Haute Cuisine", s: "Creative direction" },
+                { icon: Utensils, t: "Classical Base", s: "Modern technique" },
+                { icon: Wine, t: "600 Labels", s: "Curated cellar concept" },
               ].map((a) => (
                 <div key={a.t} className="rounded-2xl bg-muted/60 p-5 border border-border">
                   <a.icon className="size-5 text-gold" />
@@ -1077,14 +906,14 @@ function Gallery() {
 
 /* ---------------- TESTIMONIALS ---------------- */
 const REVIEWS = [
-  { name: "Camille R.", role: "Le Figaro", initials: "CR", rating: 5,
+  { name: "Camille R.", role: "Concept Reviewer", initials: "CR", rating: 5,
     text: "Quietly extraordinary. Élan Bistro doesn't perform — it cooks. Every plate feels considered down to the last grain of salt." },
-  { name: "Marcus L.", role: "Frequent guest", initials: "ML", rating: 5,
-    text: "I've eaten here forty times. The duck is reason enough. The service, the wine, the room — reason enough again." },
-  { name: "Aïcha B.", role: "Time Out Paris", initials: "AB", rating: 5,
-    text: "A masterclass in restraint. You leave feeling looked after, not impressed at — and that is the rarest thing in Paris." },
-  { name: "Henrik S.", role: "Wine writer", initials: "HS", rating: 5,
-    text: "Léa's wine list is a love letter to small growers. Pair it with the tasting menu and surrender the evening." },
+  { name: "Marcus L.", role: "Sample Guest", initials: "ML", rating: 5,
+    text: "I've returned to this counter through every season. The duck is reason enough. The service, the room — reason enough again." },
+  { name: "Aïcha B.", role: "Design Reviewer", initials: "AB", rating: 5,
+    text: "A masterclass in restraint. You leave feeling looked after, not impressed at — and that is the rarest thing in fine dining." },
+  { name: "Henrik S.", role: "Sommelier Note", initials: "HS", rating: 5,
+    text: "The wine list is a thoughtful tribute to small independent growers. A lovely pairing for the seasonal tasting menu." },
 ];
 
 function Testimonials() {
@@ -1098,8 +927,9 @@ function Testimonials() {
       <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/30 to-background" />
       <div className="relative">
         <SectionHeading
-          kicker="Guests"
-          title={<>Kind words, <em className="text-gold">unprompted</em></>}
+          kicker="Demonstration"
+          title={<>Sample guest <em className="text-gold">impressions</em></>}
+          subtitle="Fictional sample testimonials illustrating guest experience and brand tone."
         />
 
         <div className="mt-14 mx-auto max-w-3xl px-6">
@@ -1288,7 +1118,7 @@ function Reservation() {
                   />
                 </Field>
                 <div className="sm:col-span-2 flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
-                  <p className="text-xs text-cream/50">We hold tables for 15 minutes past your reservation time.</p>
+                  <p className="text-xs text-cream/50">Notice: Demonstration form only. Submissions validate in the browser and do not create real restaurant reservations.</p>
                   <button
                     type="submit"
                     className="inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-gold to-secondary px-7 py-3 text-sm font-medium text-cream shadow-elegant hover:shadow-glow transition-all hover:-translate-y-0.5"
@@ -1324,8 +1154,8 @@ function Contact() {
       t: "Address",
       content: (
         <div>
-          <span className="block text-foreground font-medium">21 Rue des Étoiles, 75008 Paris</span>
-          <span className="block text-xs text-muted-foreground mt-0.5">8th Arrondissement · Near Champs-Élysées</span>
+          <span className="block text-foreground font-medium">21 Rue des Étoiles, 75008 Paris (Fictional Location)</span>
+          <span className="block text-xs text-muted-foreground mt-0.5">8th Arrondissement · Concept Setting</span>
         </div>
       ),
     },
@@ -1336,9 +1166,9 @@ function Contact() {
         <a
           href="tel:+33142000000"
           className="text-foreground hover:text-gold transition-colors font-medium inline-block"
-          aria-label="Call Élan Bistro at +33 1 42 00 00 00"
+          aria-label="Sample demonstration phone +33 1 42 00 00 00"
         >
-          +33 1 42 00 00 00
+          +33 1 42 00 00 00 (Sample Demo)
         </a>
       ),
     },
@@ -1349,9 +1179,9 @@ function Contact() {
         <a
           href="mailto:bonjour@elanbistro.fr"
           className="text-foreground hover:text-gold transition-colors font-medium inline-block"
-          aria-label="Email Élan Bistro at bonjour@elanbistro.fr"
+          aria-label="Sample demonstration email bonjour@elanbistro.fr"
         >
-          bonjour@elanbistro.fr
+          bonjour@elanbistro.fr (Demo Contact)
         </a>
       ),
     },
@@ -1360,7 +1190,7 @@ function Contact() {
       t: "Hours",
       content: (
         <div>
-          <span className="block text-foreground font-medium">Tuesday – Sunday · 17:30 – 23:00</span>
+          <span className="block text-foreground font-medium">Tuesday – Sunday · 17:30 – 23:00 (Concept)</span>
           <span className="block text-xs text-muted-foreground mt-0.5">Closed Mondays</span>
         </div>
       ),
@@ -1377,7 +1207,7 @@ function Contact() {
               Find us in the <em className="text-gold">8th</em>.
             </h2>
             <p className="mt-5 text-muted-foreground max-w-md">
-              A short walk from the Champs-Élysées, tucked behind a quiet candlelit courtyard.
+              A fictional dining concept imagined in a quiet courtyard steps from the Champs-Élysées.
             </p>
 
             <ul className="mt-10 space-y-5">
@@ -1395,10 +1225,10 @@ function Contact() {
             </ul>
 
             <div className="mt-8 pt-6 border-t border-border/50">
-              <div className="text-xs uppercase tracking-widest text-muted-foreground font-medium">Public Transit & Parking</div>
+              <div className="text-xs uppercase tracking-widest text-muted-foreground font-medium">Transit & Setting (Concept)</div>
               <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">Métro:</strong> Franklin D. Roosevelt (Lines 1 & 9), George V (Line 1), Saint-Philippe-du-Roule (Line 9).<br />
-                <strong className="text-foreground">Parking:</strong> Indigo Champs-Élysées (100m). Valet parking available on Friday and Saturday evenings.
+                <strong className="text-foreground">Métro Concept:</strong> Franklin D. Roosevelt (Lines 1 & 9) or George V (Line 1).<br />
+                <strong className="text-foreground">Note:</strong> Displayed for demonstration and location immersion purposes only.
               </p>
             </div>
           </div>
@@ -1413,28 +1243,15 @@ function Contact() {
               loading="lazy"
             />
             <div className="relative m-4 self-end flex gap-2">
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=21+Rue+des+Étoiles+75008+Paris"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass-dark rounded-full px-3.5 py-1.5 text-xs text-cream hover:text-gold transition-colors shadow"
-              >
-                Google Maps ↗
-              </a>
-              <a
-                href="https://maps.apple.com/?address=21+Rue+des+Étoiles,75008+Paris,France"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass-dark rounded-full px-3.5 py-1.5 text-xs text-cream hover:text-gold transition-colors shadow"
-              >
-                Apple Maps ↗
-              </a>
+              <span className="glass-dark rounded-full px-3.5 py-1.5 text-xs text-cream shadow">
+                Concept Map View
+              </span>
             </div>
             <div className="relative m-4 glass rounded-2xl p-4 flex items-center gap-3">
               <MapPin className="size-5 text-gold shrink-0" />
               <div className="min-w-0">
-                <div className="font-medium truncate text-foreground">Élan Bistro</div>
-                <div className="text-xs text-muted-foreground truncate">21 Rue des Étoiles, 75008 Paris (8ème)</div>
+                <div className="font-medium truncate text-foreground">Élan Bistro (Concept)</div>
+                <div className="text-xs text-muted-foreground truncate">21 Rue des Étoiles, 75008 Paris (Fictional)</div>
               </div>
             </div>
           </div>
@@ -1450,32 +1267,32 @@ function FAQ() {
 
   const FAQS = [
     {
-      q: "What type of cuisine does Élan Bistro serve?",
-      a: "Élan Bistro is a modern French-Mediterranean fine dining restaurant in Paris's 8th arrondissement. Led by Michelin-starred Chef Julien Marchetti, the kitchen combines classical French technique with vibrant Mediterranean terroir and seasonal produce from growers within 200km of Paris.",
+      q: "Is Élan Bistro a real operating restaurant?",
+      a: "No. Élan Bistro is a fictional demonstration project created to showcase modern frontend web design, typography, and interactive UI for a luxury culinary concept.",
     },
     {
-      q: "Where is Élan Bistro located and which Métro station is closest?",
-      a: "Élan Bistro is located at 21 Rue des Étoiles, 75008 Paris, a short stroll from the Champs-Élysées. The nearest Métro stations are Franklin D. Roosevelt (Lines 1 & 9), George V (Line 1), and Saint-Philippe-du-Roule (Line 9). Parking is available at Indigo Champs-Élysées.",
+      q: "What type of cuisine is represented on the concept menu?",
+      a: "The showcase presents a seasonal French-Mediterranean concept featuring classical French culinary technique paired with Mediterranean ingredients.",
     },
     {
-      q: "Does Élan Bistro offer a seasonal tasting menu and what is the price?",
-      a: "Yes. Élan Bistro presents a 7-course seasonal tasting menu priced at €145 per guest, with an optional curated wine pairing by sommelier Léa Dumas for €235. An à la carte menu is also served.",
+      q: "Where is the restaurant concept set?",
+      a: "The fictional concept is set in Paris's 8th arrondissement near the Champs-Élysées.",
     },
     {
-      q: "What are Élan Bistro's opening hours?",
-      a: "Élan Bistro is open for dinner Tuesday through Sunday from 17:30 to 23:00. The restaurant is closed on Mondays.",
+      q: "What tasting menu is featured on the showcase?",
+      a: "The concept features a 7-course seasonal tasting menu priced at €145, with an optional wine pairing at €235.",
     },
     {
-      q: "What is the dress code at Élan Bistro?",
-      a: "The dress code is smart casual. Jackets are encouraged for dinner, while sportswear, athletic shorts, and beachwear are not permitted.",
+      q: "What are the concept opening hours?",
+      a: "The dining concept is imagined as open Tuesday through Sunday from 17:30 to 23:00, closed on Mondays.",
     },
     {
-      q: "Can Élan Bistro accommodate vegetarian, vegan, or gluten-free diets?",
-      a: "Yes. We offer dedicated vegetarian tasting menu options and accommodate dietary allergies, including celiac/gluten-free requests. Please inform us upon reservation.",
+      q: "Does the reservation form place a real booking?",
+      a: "No. The reservation form is a frontend demonstration component with client-side validation; it does not process real bookings or submit personal data to a restaurant.",
     },
     {
-      q: "How can I make a reservation and what is the policy?",
-      a: "Reservations can be made online via the reservation form on our website. Tables are held for 15 minutes past reservation time. Cancellations require at least 24 hours advance notice.",
+      q: "Are the reviews, awards, and chef credentials real?",
+      a: "No. All reviews, quotes, chef biography details, and accolades shown on this website are entirely fictional demonstration content.",
     },
   ];
 
@@ -1484,7 +1301,7 @@ function FAQ() {
       <SectionHeading
         kicker="Questions"
         title={<>Frequently asked <em className="text-gold">questions</em></>}
-        subtitle="Common questions about dining, reservations, transit, and policies at Élan Bistro."
+        subtitle="Common questions about this culinary concept and demonstration showcase."
       />
 
       <div className="mt-12 sm:mt-16 mx-auto max-w-3xl px-6 space-y-4">
@@ -1530,6 +1347,25 @@ function FAQ() {
             </Reveal>
           );
         })}
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- TRANSPARENCY NOTICE ---------------- */
+function DisclaimerNotice() {
+  return (
+    <section id="transparency" className="relative border-t border-cream/15 bg-ink py-12 px-6 text-cream">
+      <div className="mx-auto max-w-4xl rounded-2xl border border-gold/30 bg-cream/5 p-6 sm:p-8 backdrop-blur-sm text-center">
+        <span className="inline-block rounded-full bg-gold/20 px-3 py-1 text-[11px] uppercase tracking-widest text-gold font-medium mb-3">
+          Project Transparency Notice
+        </span>
+        <h3 className="font-display text-xl sm:text-2xl text-cream">
+          Fictional Demonstration Showcase
+        </h3>
+        <p className="mt-3 text-xs sm:text-sm text-cream/75 leading-relaxed max-w-2xl mx-auto">
+          Élan Bistro is a fictional culinary concept created exclusively for frontend web development, design, and SEO demonstration purposes. It is <strong>not</strong> an active or operating restaurant. All menus, chef profiles, testimonials, press quotes, and accolades displayed across this website are fictional demonstration content.
+        </p>
       </div>
     </section>
   );
